@@ -7,4 +7,3 @@ SELECT
     order_timestamp,
     item_id
 FROM silver.stg_order_details;
-select * from gold.order_details;
