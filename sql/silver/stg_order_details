@@ -1,0 +1,17 @@
+CREATE OR REPLACE TABLE silver.stg_order_details AS
+SELECT
+    order_details_id,
+    order_id,
+
+    -- Convert date
+    CAST(order_date AS DATE) AS order_date,
+
+    -- Convert time properly
+    STRPTIME(order_time, '%I:%M:%S %p') AS order_time,
+
+    -- Combine into timestamp
+    STRPTIME(order_date || ' ' || order_time, '%Y-%m-%d %I:%M:%S %p') AS order_timestamp,
+
+    item_id
+FROM bronze.order_details
+WHERE order_id IS NOT NULL;

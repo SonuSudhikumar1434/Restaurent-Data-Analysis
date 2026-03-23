@@ -1,0 +1,9 @@
+
+CREATE OR REPLACE TABLE silver.stg_menu_details AS
+SELECT
+    menu_item_id,
+    TRIM(item_name) AS item_name,
+    TRIM(category) AS category,
+    CAST(price AS DOUBLE) AS price
+FROM bronze.menu_details
+WHERE menu_item_id IS NOT NULL;

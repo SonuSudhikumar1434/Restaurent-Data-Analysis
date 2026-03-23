@@ -6,4 +6,3 @@ SELECT
     price
 FROM silver.stg_menu_details
 WHERE menu_item_id IS NOT NULL;
-select * from gold.menu_details;
