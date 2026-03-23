@@ -1,0 +1,9 @@
+CREATE OR REPLACE TABLE gold.menu_details AS
+SELECT
+    menu_item_id,
+    item_name,
+    category,
+    price
+FROM silver.stg_menu_details
+WHERE menu_item_id IS NOT NULL;
+select * from gold.menu_details;
